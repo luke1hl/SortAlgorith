@@ -1,8 +1,11 @@
-﻿Public Class Form1
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim numberarray() As Integer
+﻿Imports System.IO
+Public Class Form1
+    Private bubbler As New CBubblesort
+    Private numberarray(999999) As Integer
 
-        Dim filepath As String
+    Private filepath As String
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Select Case OpenFileDialog1.ShowDialog()
             Case DialogResult.OK
                 filepath = OpenFileDialog1.FileName
@@ -20,9 +23,23 @@
             numberarray(count) = a
             count += 1
         Loop Until a Is Nothing
-
+        count -= 2
+        ReDim Preserve numberarray(count)
         objReader.Close()
+        filenames()
+        dobubble()
     End Sub
+    Private Sub filenames()
+        Filename.Text = Path.GetFileName(filepath)
+    End Sub
+    Private Sub dobubble()
+        Dim holder As CBubblesort.values
+        holder = bubbler.BubbleSort(numberarray)
+        bubblecomp.Text &= holder.count
+        bubbleswaps.Text &= holder.swaps
 
-
+        'For i = 0 To numberarray.Length - 1
+        '    MsgBox(numberarray(i))
+        'Next
+    End Sub
 End Class
