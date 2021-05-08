@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Public Class Form1
     Private bubbler As New CBubblesort
+    Private merger As New CMergeSort
     Private numberarray(999999) As Integer
 
     Private filepath As String
@@ -28,6 +29,7 @@ Public Class Form1
         objReader.Close()
         filenames()
         dobubble()
+        merger.MergeSort(numberarray, 0, numberarray.Length - 1)
     End Sub
     Private Sub filenames()
         Filename.Text = Path.GetFileName(filepath)
