@@ -29,10 +29,16 @@ Public Class Form1
         objReader.Close()
         filenames()
         dobubble()
-        merger.MergeSort(numberarray, 0, numberarray.Length - 1)
+        domerge()
     End Sub
     Private Sub filenames()
         Filename.Text = Path.GetFileName(filepath)
+    End Sub
+    Private Sub domerge()
+        Dim holder As New CMergeSort.values
+        merger.MergeSort(numberarray, 0, numberarray.Length - 1, holder)
+        mergeswaps.Text &= holder.swaps
+        mergecompa.Text &= holder.count
     End Sub
     Private Sub dobubble()
         Dim holder As CBubblesort.values
