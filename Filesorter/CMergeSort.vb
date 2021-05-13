@@ -12,11 +12,13 @@
             lista.Add(subarray)
         Next
         While lista.Count > 1
-            For i = 0 To lista.Count - 1
+            Dim i As Integer = 0
+            While i < lista.Count - 1
                 Dim resultofmerge As Integer() = merge(lista(i), lista(i + 1), tracker)
                 lista.RemoveRange(i, 2)
                 lista.Insert(i, resultofmerge)
-            Next
+                i += 1
+            End While
         End While
         Return lista(0)
     End Function
@@ -35,7 +37,7 @@
 
             ElseIf listleftarray(0) <= listrightarray(0) Then
                 listresult.Add(listleftarray(0))
-                listleftarray.Remove(0)
+                listleftarray.RemoveAt(0)
             Else
                 listresult.Add(listrightarray(0))
                 listrightarray.RemoveAt(0)
