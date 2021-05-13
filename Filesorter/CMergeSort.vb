@@ -4,7 +4,7 @@
         Dim swaps As Integer
     End Structure
 
-    Function DoSort(ByVal array() As Integer, ByRef tracker As values) As Integer()
+    Function DoSort(ByRef array() As Integer, ByRef tracker As values) As Integer()
         Dim lista As New List(Of Integer())
         For i = 0 To array.Length - 1
             Dim subarray(0) As Integer

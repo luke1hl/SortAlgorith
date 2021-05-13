@@ -27,12 +27,9 @@ Public Class Form1
         count -= 2
         ReDim Preserve numberarray(count)
         holdernumberarray = numberarray
+        MsgBox(numberarray.Length)
         objReader.Close()
-        filenames()
-        dobubble()
-        numberarray = holdernumberarray
-        domerge()
-        MsgBox(checkersort(numberarray))
+
     End Sub
     Private Sub filenames()
         Filename.Text = Path.GetFileName(filepath)
@@ -64,5 +61,17 @@ Public Class Form1
         'For i = 0 To numberarray.Length - 1
         '    MsgBox(numberarray(i))
         'Next
+    End Sub
+
+    Private Sub dothebubble_Click(sender As Object, e As EventArgs) Handles dothebubble.Click
+        dobubble()
+        MsgBox(checkersort(numberarray))
+
+    End Sub
+
+    Private Sub dothemerge_Click(sender As Object, e As EventArgs) Handles dothemerge.Click
+        domerge()
+        MsgBox(checkersort(numberarray))
+
     End Sub
 End Class

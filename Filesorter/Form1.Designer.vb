@@ -28,6 +28,8 @@ Partial Class Form1
         Me.bubbleswaps = New System.Windows.Forms.Label()
         Me.mergecompa = New System.Windows.Forms.Label()
         Me.mergeswaps = New System.Windows.Forms.Label()
+        Me.dothebubble = New System.Windows.Forms.Button()
+        Me.dothemerge = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -84,17 +86,37 @@ Partial Class Form1
         Me.mergeswaps.Text = "number of swaps - "
         Me.mergeswaps.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'dothebubble
+        '
+        Me.dothebubble.Location = New System.Drawing.Point(128, 114)
+        Me.dothebubble.Name = "dothebubble"
+        Me.dothebubble.Size = New System.Drawing.Size(75, 23)
+        Me.dothebubble.TabIndex = 5
+        Me.dothebubble.Text = "bubble"
+        Me.dothebubble.UseVisualStyleBackColor = True
+        '
+        'dothemerge
+        '
+        Me.dothemerge.Location = New System.Drawing.Point(407, 114)
+        Me.dothemerge.Name = "dothemerge"
+        Me.dothemerge.Size = New System.Drawing.Size(75, 23)
+        Me.dothemerge.TabIndex = 6
+        Me.dothemerge.Text = "merge"
+        Me.dothemerge.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(600, 366)
+        Me.Controls.Add(Me.dothemerge)
+        Me.Controls.Add(Me.dothebubble)
         Me.Controls.Add(Me.mergeswaps)
         Me.Controls.Add(Me.mergecompa)
         Me.Controls.Add(Me.bubbleswaps)
         Me.Controls.Add(Me.bubblecomp)
         Me.Controls.Add(Me.Filename)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
@@ -107,4 +129,6 @@ Partial Class Form1
     Friend WithEvents bubbleswaps As Label
     Friend WithEvents mergecompa As Label
     Friend WithEvents mergeswaps As Label
+    Friend WithEvents dothebubble As Button
+    Friend WithEvents dothemerge As Button
 End Class
