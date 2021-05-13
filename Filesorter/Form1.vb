@@ -27,16 +27,16 @@ Public Class Form1
         count -= 2
         ReDim Preserve numberarray(count)
         holdernumberarray = numberarray
-        MsgBox(numberarray.Length)
-        objReader.Close()
+        Filename.Text = Path.GetFileName(filepath)
 
+        objReader.Close()
     End Sub
     Private Sub filenames()
         Filename.Text = Path.GetFileName(filepath)
     End Sub
     Private Sub domerge()
         Dim holder As New CMergeSort.values
-        merger.DoSort(numberarray, holder)
+        MsgBox(checkersort(merger.DoSort(numberarray, holder)))
         mergeswaps.Text &= holder.swaps
         mergecompa.Text &= holder.count
 
@@ -65,13 +65,11 @@ Public Class Form1
 
     Private Sub dothebubble_Click(sender As Object, e As EventArgs) Handles dothebubble.Click
         dobubble()
-        MsgBox(checkersort(numberarray))
 
     End Sub
 
     Private Sub dothemerge_Click(sender As Object, e As EventArgs) Handles dothemerge.Click
         domerge()
-        MsgBox(checkersort(numberarray))
 
     End Sub
 End Class

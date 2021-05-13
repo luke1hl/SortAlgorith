@@ -4,7 +4,7 @@
         Dim swaps As Integer
     End Structure
 
-    Function DoSort(ByRef array() As Integer, ByRef tracker As values) As Integer()
+    Function DoSort(ByVal array() As Integer, ByRef tracker As values) As Integer()
         Dim lista As New List(Of Integer())
         For i = 0 To array.Length - 1
             Dim subarray(0) As Integer
@@ -22,7 +22,7 @@
         End While
         Return lista(0)
     End Function
-    Function merge(ByRef array() As Integer, arraytwo() As Integer, ByRef tracker As values) As Integer()
+    Function merge(ByVal array() As Integer, arraytwo() As Integer, ByRef tracker As values) As Integer()
         Dim listresult As New List(Of Integer)
         Dim listleftarray As List(Of Integer) = New List(Of Integer)(array)
         Dim listrightarray As List(Of Integer) = New List(Of Integer)(arraytwo)
