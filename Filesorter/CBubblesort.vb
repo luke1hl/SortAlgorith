@@ -3,7 +3,7 @@
         Dim count As Integer
         Dim swaps As Integer
     End Structure
-    Function BubbleSort(ByRef Numlist As Object) As values
+    Function BubbleSort(ByVal Numlist As Object) As values
         Dim valuesstructure As New values
 
         valuesstructure.swaps = 0

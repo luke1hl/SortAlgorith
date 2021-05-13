@@ -3,7 +3,7 @@ Public Class Form1
     Private bubbler As New CBubblesort
     Private merger As New CMergeSort
     Private numberarray(999999) As Integer
-
+    Private holdernumberarray() As Integer
     Private filepath As String
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -26,20 +26,35 @@ Public Class Form1
         Loop Until a Is Nothing
         count -= 2
         ReDim Preserve numberarray(count)
+        holdernumberarray = numberarray
         objReader.Close()
         filenames()
         dobubble()
+        numberarray = holdernumberarray
         domerge()
+        MsgBox(checkersort(numberarray))
     End Sub
     Private Sub filenames()
         Filename.Text = Path.GetFileName(filepath)
     End Sub
     Private Sub domerge()
         Dim holder As New CMergeSort.values
-        merger.MergeSort(numberarray, 0, numberarray.Length - 1, holder)
+        merger.DoSort(numberarray, holder)
         mergeswaps.Text &= holder.swaps
         mergecompa.Text &= holder.count
+
     End Sub
+    Private Function checkersort(array() As Integer)
+        Dim currentvalue As Integer = Integer.MinValue
+        For i = 0 To array.Length - 1
+            If currentvalue > array(i) Then
+                Return False
+            End If
+            currentvalue = array(i)
+        Next
+        Return True
+
+    End Function
     Private Sub dobubble()
         Dim holder As CBubblesort.values
         holder = bubbler.BubbleSort(numberarray)
